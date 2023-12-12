@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --prim-clr: rgb(43, 39, 60);
+  --sec-clr: rgb(145, 41, 183);
+  --text-clr: rgb(16, 4, 76);
+  --text-clr-2: rgb(104, 107, 152);
+  --orange-clr: rgb(222, 128, 13);
+  --green-clr: rgb(125, 204, 64);
+  --second-clr: rgb(64, 125, 204);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--prim-clr);
+  color: #ffffff;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 95%;
+  align-items: center;
+}
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.buttons-sec {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.buttons-sec button {
+  background-color: var(--prim-clr);
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2rem;
+  cursor: pointer;
+}
+.buttons-sec img {
+  width: 70px;
+  height: 70px;
+}
+.reset-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 1rem;
+  padding: 8px 25px;
+  border-radius: 15px;
+  gap: 0.5rem;
+  background-color: var(--second-clr);
+  color: white;
+  border: none;
+  transition: all 0.7s;
+}
+.reset-button:hover {
+  box-shadow: inset -10em 0 0 0 var(--orange-clr),
+    inset 10em 0 0 0 var(--orange-clr);
+  cursor: pointer;
+}
+.result,
+.score {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0.5rem;
+}
+.score {
+  font-size: 1rem;
+}
+.moves img {
+  width: 40px;
+  height: 40px;
+}
