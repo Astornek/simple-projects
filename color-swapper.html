@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="color-style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="switcher-button">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-adjustments"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M4 10a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M6 4v4" />
+        <path d="M6 12v8" />
+        <path d="M10 16a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M12 4v10" />
+        <path d="M12 18v2" />
+        <path d="M16 7a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+        <path d="M18 4v1" />
+        <path d="M18 9v11" />
+      </svg>
+    </div>
+    <div class="color-switcher">
+      <p class="color-des">Choose color</p>
+      <button class="close-switcher-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-x"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="-var(-prim-clr)"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 6l-12 12" />
+          <path d="M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="button-container">
+        <span
+          class="button-clr"
+          data-color="#f50505"
+          style="background: #f50505"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#eeff00"
+          style="background: #eeff00"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#3cff00"
+          style="background: #3cff00"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#00ffb3"
+          style="background: #00ffb3"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#003cff"
+          style="background: #003cff"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#e100ff"
+          style="background: #e100ff"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#8400ff"
+          style="background: #8400ff"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#00ff7383"
+          style="background: #00ff7383"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#dfb885"
+          style="background: #dfb885"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#643e0b"
+          style="background: #643e0b"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#054d37"
+          style="background: #054d37"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#dd816a"
+          style="background: #dd816a"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#5a6072"
+          style="background: #5a6072"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#141414"
+          style="background: #141414"
+        ></span>
+        <span
+          class="button-clr"
+          data-color="#a9b6b5"
+          style="background: #a9b6b5"
+        ></span>
+      </div>
+    </div>
+    <div class="wrapper">
+      <h2>Hello, you can change colors here, feel free to try.</h2>
+    </div>
+    <script>
+      document.querySelector(".switcher-button").onclick = () => {
+        const colorSwitcher = document.querySelector(".color-switcher");
+
+        colorSwitcher.classList.remove("closed");
+
+        colorSwitcher.classList.add("active");
+      };
+      let clrButtons = document.querySelectorAll(".button-clr");
+
+      clrButtons.forEach((color) => {
+        color.addEventListener("click", () => {
+          let dataColor = color.getAttribute("data-color");
+          document
+            .querySelector(":root")
+            .style.setProperty("--prim-clr", dataColor);
+        });
+      });
+
+      document.querySelector(".close-switcher-btn").onclick = () => {
+        const colorSwitcher = document.querySelector(".color-switcher");
+
+        colorSwitcher.classList.remove("active");
+
+        colorSwitcher.classList.add("closed");
+      };
+    </script>
+  </body>
+</html>
