@@ -1,0 +1,147 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --prim-clr: rgb(43, 39, 60);
+  --sec-clr: rgb(145, 41, 183);
+  --text-clr: rgb(16, 4, 76);
+  --text-clr-2: rgb(104, 107, 152);
+  --orange-clr: rgb(222, 128, 13);
+  --green-clr: rgb(125, 204, 64);
+  --second-clr: rgb(64, 125, 204);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--prim-clr);
+  position: relative;
+}
+
+.wrapper {
+  background: var(--prim-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1;
+}
+h2 {
+  color: var(--prim-clr);
+  background-color: white;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+}
+.color-switcher {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(100%, 80%);
+  padding: 0.5rem;
+  max-width: 20rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: var(--prim-clr);
+  fill: var(--prim-clr);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.close-switcher-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 4px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+}
+.close-switcher-btn {
+  stroke: var(--prim-clr);
+}
+.close-switcher-btn:hover {
+  background-color: rgb(64, 125, 204, 0.7);
+}
+.color-des {
+  color: black;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--prim-clr);
+  padding: 5px 0;
+  text-align: center;
+}
+.switcher-button {
+  position: absolute;
+  display: flex;
+  bottom: 0rem;
+  right: 0rem;
+  color: var(--prim-clr);
+  background-color: white;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.switcher-button svg {
+  height: 3em;
+}
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 30rem;
+  width: 100%;
+}
+.button-clr {
+  display: block;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.color-switcher.active {
+  animation: open 1s ease 0.5s 1 forwards;
+  opacity: 0;
+}
+
+@keyframes open {
+  0% {
+    transform: translate(100%, 80%) scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(100%, 80%) scale(1);
+    opacity: 1;
+  }
+}
+.color-switcher.closed {
+  animation: close 1s ease 0.5s 1 forwards;
+  opacity: 1;
+}
+@keyframes close {
+  0% {
+    transform: translate(100%, 80%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(100%, 80%) scale(0);
+    opacity: 0;
+  }
+}
