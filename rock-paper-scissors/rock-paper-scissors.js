@@ -10,6 +10,21 @@ function reset() {
   localStorage.setItem("score", JSON.stringify(result));
 }
 
+let isAutoPlaying = false;
+let intervalId;
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalId = setInterval(function () {
+      const computerChoice = playGame();
+      playerMove(computerChoice);
+    }, 1000);
+    isAutoPlaying = true;
+  } else {
+    clearInterval(intervalId);
+    isAutoPlaying = false;
+  }
+}
+
 function playGame() {
   let randomNumber = Math.random();
   let computerMove = "";
@@ -34,6 +49,10 @@ function updateScoreElement() {
 updateScoreElement();
 
 function playerMove(playerChoice) {
+  if (!result) {
+    // Zainicjuj obiekt result, jeśli jeszcze nie istnieje
+    result = { wins: 0, ties: 0, loses: 0 };
+  }
   let score = "";
   let computerMove = playGame();
 
